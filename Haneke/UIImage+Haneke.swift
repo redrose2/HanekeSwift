@@ -25,6 +25,8 @@ extension UIImage {
             return true
         case .none, .noneSkipFirst, .noneSkipLast:
             return false
+        @unknown default:
+            return false
         }
     }
     
@@ -49,6 +51,8 @@ extension UIImage {
         case .premultipliedFirst, .premultipliedLast, .noneSkipFirst, .noneSkipLast:
             break
         case .alphaOnly, .last, .first: // Unsupported
+            return self
+        @unknown default:
             return self
         }
         
